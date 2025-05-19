@@ -14,6 +14,7 @@ front end
 - navbar: text showing on the right
 - navbar: mobile menu not opening (missing ID)
 - navbar: dropdown not opening
+- broken css (had to update the href)
 
 back end (python)
 
