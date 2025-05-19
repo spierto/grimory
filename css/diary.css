@@ -51,6 +51,8 @@ article h3 {
   text-align: end;
 }
 
+/* modifying elements on the navbar */
+
 .navbar-brand:hover {
   border-radius: 10px;
   background-color: bisque;

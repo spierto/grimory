@@ -1,5 +1,6 @@
 front end
 - pagina per crud
+- navbar container +content container?
 
 /done
 
