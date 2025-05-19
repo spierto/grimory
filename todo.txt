@@ -1,11 +1,10 @@
 front end
-
-- hover navbar
 - pagina per crud
 
 /done
 
 - repeatable navbar
+- hover navbar
 
 /bug
 

@@ -50,3 +50,17 @@ article h3 {
   padding-right: 10px;
   text-align: end;
 }
+
+.navbar-brand:hover {
+  border-radius: 10px;
+  background-color: bisque;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-content: center;
+}
+
+.nav-item:hover {
+  border-radius: 10px;
+  background-color: bisque;
+}
