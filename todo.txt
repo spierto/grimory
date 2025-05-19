@@ -1,0 +1,20 @@
+front end
+
+- hover navbar
+- pagina per crud
+
+/done
+
+- repeatable navbar
+
+/bug
+
+
+/fixed
+- navbar: text showing on the right
+- navbar: mobile menu not opening (missing ID)
+- navbar: dropdown not opening
+
+back end (python)
+
+- crud entry

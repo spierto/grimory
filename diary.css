@@ -1,0 +1,52 @@
+header {
+  background-color: rgb(222, 168, 99);
+  padding: 5px;
+  text-align: center;
+}
+header h1 {
+  font-family: 'Brush Script MT', fantasy;
+  letter-spacing: 2.5px;
+  font-weight: lighter;
+  color: rgb(171, 24, 24);
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+main {
+  width: 100%;
+  background-color: whitesmoke;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main h2 {
+  background-color: rgb(209, 177, 135);
+  text-align: center;
+}
+
+/* properties to make the background look like lined paper */
+article {
+  /* width: 800px; */
+  padding: 10px;
+  background: repeating-linear-gradient(
+    white, white 25px,
+    #9198e5 26px, #9198e5 27px
+  );
+}
+
+/* aligning the text to the lines (modify top) */
+article p {
+  position: relative;
+  top: 10px;
+  font-size: 18px;
+  margin: 0 20px;
+  line-height: 27px;
+}
+
+article h3 {
+  background-color: rgb(118, 93, 61);
+  color: bisque;
+  padding-right: 10px;
+  text-align: end;
+}
