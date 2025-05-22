@@ -8,6 +8,7 @@ header h1 {
   letter-spacing: 2.5px;
   font-weight: lighter;
   color: rgb(171, 24, 24);
+  margin-top: 10px;
 }
 
 body {
@@ -65,4 +66,46 @@ article h3 {
 .nav-item:hover {
   border-radius: 10px;
   background-color: bisque;
+}
+
+/* button */
+
+button.btn, button.btn:active, button.btn:target {
+  background-color: rgb(118, 93, 61);
+  color: rgb(222, 168, 99);
+  border-color: bisque;
+}
+
+button.btn:hover, button.btn:hover:active, button.btn:focus button.btn:active:focus {
+  background-color: rgb(222, 168, 99);
+  color: rgb(118, 93, 61);
+  border-color: bisque;
+}
+
+/* form e input */
+
+form {
+  width: 70%;
+  margin: 20px;
+  padding: 5%;
+  box-shadow: 10px 10px rgb(118, 93, 61);
+  
+  border: solid rgb(118, 93, 61) 2px;
+}
+
+form button {
+  margin-left: 85%;
+}
+
+#title {
+  width: 300px;
+}
+
+textarea {
+  width: 100%;
+}
+
+.form-label {
+  font-size: large;
+  display: block;
 }
