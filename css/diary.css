@@ -8,6 +8,7 @@ header h1 {
   letter-spacing: 2.5px;
   font-weight: lighter;
   color: rgb(171, 24, 24);
+  margin-top: 10px;
 }
 
 body {
@@ -84,17 +85,24 @@ button.btn:hover, button.btn:hover:active, button.btn:focus button.btn:active:fo
 /* form e input */
 
 form {
-  margin-top: 20px;
-  padding-left: 20%;
-  border: solid red 2px;
+  width: 70%;
+  margin: 20px;
+  padding: 5%;
+  box-shadow: 10px 10px rgb(118, 93, 61);
+  
+  border: solid rgb(118, 93, 61) 2px;
 }
 
 form button {
-  margin-left: 400px;
+  margin-left: 85%;
 }
 
 #title {
   width: 300px;
+}
+
+textarea {
+  width: 100%;
 }
 
 .form-label {
