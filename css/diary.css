@@ -66,3 +66,38 @@ article h3 {
   border-radius: 10px;
   background-color: bisque;
 }
+
+/* button */
+
+button.btn, button.btn:active, button.btn:target {
+  background-color: rgb(118, 93, 61);
+  color: rgb(222, 168, 99);
+  border-color: bisque;
+}
+
+button.btn:hover, button.btn:hover:active, button.btn:focus button.btn:active:focus {
+  background-color: rgb(222, 168, 99);
+  color: rgb(118, 93, 61);
+  border-color: bisque;
+}
+
+/* form e input */
+
+form {
+  margin-top: 20px;
+  padding-left: 20%;
+  border: solid red 2px;
+}
+
+form button {
+  margin-left: 400px;
+}
+
+#title {
+  width: 300px;
+}
+
+.form-label {
+  font-size: large;
+  display: block;
+}
