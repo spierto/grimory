@@ -23,7 +23,7 @@ def auth():
   else:
     return '<h1>Pagina di login</h1><p>...</p>'
 
-# write a new page
+# write a new page (new)
 @app.route('/write')
 def write():
   return render_template('write.html')
@@ -43,9 +43,26 @@ def delete(placeholder_id):
 def read():
   return render_template('read.html')
 
+# test: read con csv
+def formatta(riga):
+  return f'<li>{riga["data"]}:\n<strong>{riga["titolo"]}</strong>:\n{riga["testo"]}</li>'
+
+import csv
+@app.route('/test')
+def test():
+  with open('test-entry.csv', 'r') as f:
+    output = '<h1>Read</h1><h2>Entries</h2>'
+    output += '<ul>'
+    for row in csv.DictReader(f, delimiter= ','):
+      output += formatta(row)
+    output += '</ul>'
+  return output
+
+# fine test
+
 # read one specific entry
 @app.route('/read/<int:placeholder_id>')
-def read(placeholder_id):
+def read_id(placeholder_id):
   return f'<h1>Read id: {placeholder_id}</h1>'
 
 # filter entries based on date
