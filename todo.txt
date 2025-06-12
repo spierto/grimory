@@ -8,6 +8,7 @@ front end
 - hover navbar
 
 /bug
+- js not working with basic flask
 
 
 /fixed
@@ -18,6 +19,7 @@ front end
 - save button turning blue (specific css to override)
 - write/"Text" going in a weird spot on larger widths (display: block)
 
-back end (python)
+back end
 
 - crud entry
+- users
