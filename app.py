@@ -67,5 +67,5 @@ def read_id(placeholder_id):
 
 # filter entries based on date
 @app.route('/read/<month>')
-def read_month():
-  return '<h1>Read by month</h1>'
+def read_month(month):
+  return f'<h1>Read by month: {month}</h1>'
