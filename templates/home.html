@@ -20,12 +20,13 @@
     <header>
       <h1>Diary</h1>
       <!-- navigation bar -->
-      <div id="navbar"></div>
+      {% include 'navbar.html' %}
+      <!-- <div id="navbar"></div>
       <script>
-    $.get("templates\navbar.html", function(data){
+    $.get("static/navbar.html", function(data){
         $("#navbar").replaceWith(data);
     });
-</script> 
+    </script>  -->
       <!-- end navigation bar -->
     </header>
     <!-- Bootstrap JS bundle -->

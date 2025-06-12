@@ -1,25 +1,29 @@
-front end
-- pagina per crud
-- navbar container +content container?
+----- Front End -----
 
-/done
+  /to do
+    - edit
+    - delete
+    - navbar container +content container?
 
-- repeatable navbar
-- hover navbar
+  /done
+    - repeatable navbar
+    - hover navbar
 
-/bug
-- js not working with basic flask
+  /bug
+    - 
 
+  /fixed
+    - navbar: text showing on the right
+    - navbar: mobile menu not opening (missing ID)
+    - navbar: dropdown not opening
+    - broken css (had to update the href)
+    - save button turning blue (specific css to override)
+    - write/"Text" going in a weird spot on larger widths (display: block)
+    - js not working with basic flask (js goes in static)
+    - flask: navbar: links don't work (templates is private to flask. used insert)
 
-/fixed
-- navbar: text showing on the right
-- navbar: mobile menu not opening (missing ID)
-- navbar: dropdown not opening
-- broken css (had to update the href)
-- save button turning blue (specific css to override)
-- write/"Text" going in a weird spot on larger widths (display: block)
+----- Back End -----
 
-back end
-
-- crud entry
-- users
+  /to do
+    - crud entry
+    - users

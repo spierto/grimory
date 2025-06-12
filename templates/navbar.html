@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="static\styles\diary.css">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="diaryhome.html"><img src="static\styles\moon-stars.svg" /></a>
+    <a class="navbar-brand" href="{{url_for('home')}}"><img src="static\styles\moon-stars.svg" /></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -16,15 +16,15 @@
     <div class="collapse navbar-collapse" id="navbarElements">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="diaryhome.html">Home</a>
+          <a class="nav-link" href="{{url_for('home')}}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="write.html">Write</a>
+          <a class="nav-link" href="{{ url_for('write') }}">Write</a>
         </li>
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
-            href="diarypages.html"
+            href="{{ url_for('read') }}"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -32,7 +32,7 @@
             Entries
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="diarypages.html">Entries</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('read') }}">Entries</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li>
