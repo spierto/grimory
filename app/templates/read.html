@@ -3,21 +3,16 @@
 {% endblock %}
 
 {% block content %}
-<!-- h2s are months, h3 titles/dates -->
-    <h2>Month</h2>
-    <article>
-      <h3>Day</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus placeat veritatis quo reprehenderit suscipit omnis inventore
-        ipsum provident ipsa, sequi sapiente, expedita fugiat, aliquam assumenda asperiores voluptate enim perspiciatis porro.
-      </p>
-    </article>
-    <article>
-      <h3>Day</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga, numquam labore exercitationem debitis maiores libero error
-        officia doloremque optio atque? Id consequatur sequi eveniet dolore libero veniam reiciendis modi.
-      </p>
-    </article>
-  </main>
+
+{% for page in pages %}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ page.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">{{ page.author }}</h6>
+    <p class="card-text">{{ page.text|truncate(100, True) }}</p>
+    <a href="{{ url_for('read_id', id=page.id) }}" class="card-link">Read More</a>
+  </div>
+</div>
+{% endfor %}
+
 {% endblock %}

@@ -1,6 +1,8 @@
-from app.forms.forms import NewPage, NewUser
+from datetime import datetime
+from .forms import NewPage, NewUser
 from . import app
-from flask import redirect, render_template, request
+from flask import redirect, render_template, request, url_for
+from .models import Page, User, db
 
 # HOMEPAGE #
 @app.route('/')
@@ -13,6 +15,19 @@ def home():
 def success():
   return '<h1>Success</h1>'
 
+# NEW USER #
+@app.route('/new_user', methods=['GET', 'POST'])
+def new_user():
+    form = NewUser()
+    if request.method == 'POST' and form.validate():
+        name = form.name.data
+        email = form.email.data
+        user = User(name=name, email=email)
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('success'))
+    return render_template('new_user.html', form=form, title='Create New User')
+
 # AUTHENTICATION #
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
@@ -21,18 +36,37 @@ def auth():
   else:
     return '<h1>Pagina di login</h1><p>...</p>'
 
+# USER PAGE #
+@app.route('/user')
+def user():
+  pass
+
 # WRITE A NEW PAGE #
 @app.route('/write', methods=['GET', 'POST'])
 def write():
   form = NewPage()
   if request.method == 'POST' and form.validate():
+    author_id = 0
+    title = form.title.data
+    text = form.text.data
+    page = Page(author_id=author_id, title=title, text=text, date = datetime.now())
+    db.session.add(page)
+    db.session.commit()
     return redirect ('/success')
   return render_template('write.html', form=form, title='Write a new page')
 
 # EDIT A PAGE #
-@app.route('/edit/<int:placeholder_id>')
-def edit(placeholder_id):
-  return f'<h1>Edit id: {placeholder_id}</h1>'
+@app.route('/write/<int:id>/edit', methods=['GET', 'POST'])
+def page_edit():
+  page = Page.query_or_404(id)
+  form = NewPage(obj=page)
+  if request.method == 'POST' and form.validate():
+    title = form.title.data
+    text = form.text.data
+    page = NewPage(title=title, text=text)
+    db.session.commit()
+    return redirect ('/success')
+  return render_template('write.html', form=form, title='Edit this page')
 
 # DELETE A PAGE #
 @app.route('/delete/<int:placeholder_id>')
@@ -42,12 +76,13 @@ def delete(placeholder_id):
 # READ ARCHIVE OF PAGES #
 @app.route('/read')
 def read():
-  return render_template('read.html', title='Read')
+  pages = Page.query.all()
+  return render_template('read.html', pages=pages, title='Read')
 
 # READ ONE SPECIFIC PAGE #
-@app.route('/read/<int:placeholder_id>')
-def read_id(placeholder_id):
-  return f'<h1>Read id: {placeholder_id}</h1>'
+@app.route('/read/<int:id>')
+def read_id(id):
+  return f'<h1>Read id: {id}</h1>'
 
 # FILTER PAGES BASED ON DATE #
 @app.route('/read/<month>')
@@ -62,19 +97,8 @@ def testtemplate():
   return render_template('prova.html', title='Test title')
 # fine test
 
-# test: read con csv
-def formatta(riga):
-  return f'<li>{riga["data"]}:\n<strong>{riga["titolo"]}</strong>:\n{riga["testo"]}</li>'
-
-import csv
-@app.route('/test')
-def test():
-  with open('test-entry.csv', 'r') as f:
-    output = '<h1>Read</h1><h2>Entries</h2>'
-    output += '<ul>'
-    for row in csv.DictReader(f, delimiter= ','):
-      output += formatta(row)
-    output += '</ul>'
-  return output
-
-# fine test
+# test: card read
+@app.route('/read-test')
+def readtest():
+  pages = Page.query.all()
+  return render_template('read-new.html', pages=pages, title='Test read')
