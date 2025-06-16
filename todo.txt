@@ -26,6 +26,9 @@
 ----- Back End -----
 
   /to do
-    - set up DB
     - crud entry
     - users
+    -
+  
+  /done
+    - set up DB
