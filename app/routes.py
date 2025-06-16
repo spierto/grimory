@@ -6,7 +6,7 @@ from flask import render_template, request
 @app.route('/')
 @app.route('/home')
 def home():
-  return render_template('home.html')
+  return render_template('home.html', title='Grimory')
 
 # navbar
 @app.route('/navbar')
@@ -24,7 +24,7 @@ def auth():
 # write a new page (new)
 @app.route('/write')
 def write():
-  return render_template('write.html')
+  return render_template('write.html', title='New Page')
 
 # edit a page
 @app.route('/edit/<int:placeholder_id>')
@@ -39,7 +39,13 @@ def delete(placeholder_id):
 # read: archive of entries
 @app.route('/read')
 def read():
-  return render_template('read.html')
+  return render_template('read.html', title='Read')
+
+# test: template base
+@app.route('/testtemp')
+def testtemplate():
+  return render_template('prova.html', title='Test title')
+# fine test
 
 # test: read con csv
 def formatta(riga):
