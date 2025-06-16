@@ -3,19 +3,14 @@
 {% endblock %}
 
 {% block content %}
-<form>
+<form method="POST" action="/write">
+    {{ form.csrf_token }}
     <div class="mb-3">
-      <label for="title" class="form-label">Title</label>
-    <input type="text" class="form-control" id="title">
+    {{ form.title.label(class_='form-label') }} {{ form.title(size=20, class_='form-control') }}
     </div>
     <div class="mb-3">
-      <label for="date" class="form-label">Date</label>
-      <input name="date"  type="date" id="date">
-    </div>
-    <div class="mb-3">
-      <label for="text" class="form-label">Text</label>
-      <textarea rows= "15" cols="60"></textarea> <br>
+    {{ form.text.label(class_='form-label') }} {{ form.text(size=20, class_='form-control') }}
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
-  </form>
+</form>
 {% endblock %}

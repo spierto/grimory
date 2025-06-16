@@ -70,7 +70,7 @@ article h3 {
 
 /* button */
 
-button.btn, button.btn:active, button.btn:target {
+button.btn, button.btn:active, button.btn:target, input[type=submit] {
   background-color: rgb(118, 93, 61);
   color: rgb(222, 168, 99);
   border-color: bisque;

@@ -3,11 +3,12 @@
   /to do
     - edit
     - delete
-    - navbar container +content container?
+    - read: card preview
 
   /done
     - repeatable navbar
     - hover navbar
+    - templates
 
   /bug
     - 
@@ -25,5 +26,6 @@
 ----- Back End -----
 
   /to do
+    - set up DB
     - crud entry
     - users
