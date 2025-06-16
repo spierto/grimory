@@ -2,19 +2,18 @@ from app.forms.forms import NewPage, NewUser
 from . import app
 from flask import redirect, render_template, request
 
-# homepage
-
+# HOMEPAGE #
 @app.route('/')
 @app.route('/home')
 def home():
   return render_template('home.html', title='Grimory')
 
-# navbar
-@app.route('/navbar')
-def navbar():
-  return render_template('navbar.html')
+# SUCCESS #
+@app.route('/success')
+def success():
+  return '<h1>Success</h1>'
 
-# authentication
+# AUTHENTICATION #
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
   if request.method == 'POST':
@@ -22,7 +21,7 @@ def auth():
   else:
     return '<h1>Pagina di login</h1><p>...</p>'
 
-# write a new page (new)
+# WRITE A NEW PAGE #
 @app.route('/write', methods=['GET', 'POST'])
 def write():
   form = NewPage()
@@ -30,36 +29,32 @@ def write():
     return redirect ('/success')
   return render_template('write.html', form=form, title='Write a new page')
 
-@app.route('/success')
-def success():
-  return '<h1>Success</h1>'
-
-# edit a page
+# EDIT A PAGE #
 @app.route('/edit/<int:placeholder_id>')
 def edit(placeholder_id):
   return f'<h1>Edit id: {placeholder_id}</h1>'
 
-# delete a page
+# DELETE A PAGE #
 @app.route('/delete/<int:placeholder_id>')
 def delete(placeholder_id):
   return f'<h1>Delete id: {placeholder_id}</h1>'
 
-# read: archive of entries
+# READ ARCHIVE OF PAGES #
 @app.route('/read')
 def read():
   return render_template('read.html', title='Read')
 
-# read one specific entry
+# READ ONE SPECIFIC PAGE #
 @app.route('/read/<int:placeholder_id>')
 def read_id(placeholder_id):
   return f'<h1>Read id: {placeholder_id}</h1>'
 
-# filter entries based on date
+# FILTER PAGES BASED ON DATE #
 @app.route('/read/<month>')
 def read_month(month):
   return f'<h1>Read by month: {month}</h1>'
 
-### tests ###
+### TESTS ###
 
 # test: template base
 @app.route('/testtemp')
