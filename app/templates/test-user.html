@@ -1,0 +1,11 @@
+{% extends('base.html') %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<ul>
+{% for user in users %}
+<li>{{ user.name }}, {{ user.email }}, {{ user.password }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,42 +1,45 @@
+/* General style */
 header {
-  background-color: rgb(222, 168, 99);
+  background-color: rgb(34, 0, 51); 
   padding: 5px;
+  padding-bottom: 10px;
   text-align: center;
 }
+
 header h1 {
-  font-family: 'Brush Script MT', fantasy;
+  font-family: 'Old English Text MT', fantasy;
   letter-spacing: 2.5px;
   font-weight: lighter;
-  color: rgb(171, 24, 24);
+  color: rgb(221, 221, 221);
   margin-top: 10px;
 }
 
 body {
-  background-color: antiquewhite;
+  background-color: rgb(45, 40, 45);
+  color: rgb(230, 230, 230);
 }
 
 main {
   width: 100%;
-  background-color: whitesmoke;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(25, 25, 25);
+  font-family: "Garamond", serif;
 }
 
 main h2 {
-  background-color: rgb(209, 177, 135);
+  background-color: rgb(58, 0, 80);
+  color: rgb(200, 200, 200);
   text-align: center;
 }
 
-/* properties to make the background look like lined paper */
+/* antique lined pages */
 article {
-  /* width: 800px; */
   padding: 10px;
   background: repeating-linear-gradient(
-    white, white 25px,
-    #9198e5 26px, #9198e5 27px
+    rgb(20, 20, 20), rgb(20, 20, 20) 25px,
+    rgb(70, 0, 100) 26px, rgb(70, 0, 100) 27px
   );
 }
 
-/* aligning the text to the lines (modify top) */
 article p {
   position: relative;
   top: 10px;
@@ -46,17 +49,17 @@ article p {
 }
 
 article h3 {
-  background-color: rgb(118, 93, 61);
-  color: bisque;
+  background-color: rgb(48, 0, 75);
+  color: rgb(192, 192, 192);
   padding-right: 10px;
   text-align: end;
 }
 
-/* modifying elements on the navbar */
-
+/* Navbar */
 .navbar-brand:hover {
   border-radius: 10px;
-  background-color: bisque;
+  background-color: rgb(80, 0, 80);
+  color: rgb(221, 221, 221);
   width: 35px;
   height: 35px;
   display: flex;
@@ -65,32 +68,30 @@ article h3 {
 
 .nav-item:hover {
   border-radius: 10px;
-  background-color: bisque;
+  background-color: rgb(80, 0, 80);
+  color: rgb(221, 221, 221);
 }
 
-/* button */
-
+/* Pulsanti */
 button.btn, button.btn:active, button.btn:target, input[type=submit] {
-  background-color: rgb(118, 93, 61);
-  color: rgb(222, 168, 99);
-  border-color: bisque;
+  background-color: rgb(48, 0, 75); /* Viola scuro */
+  color: rgb(192, 192, 192); /* Argento */
+  border-color: rgb(100, 0, 150); /* Bordo viola più acceso */
 }
 
-button.btn:hover, button.btn:hover:active, button.btn:focus button.btn:active:focus {
-  background-color: rgb(222, 168, 99);
-  color: rgb(118, 93, 61);
-  border-color: bisque;
+button.btn:hover, button.btn:hover:active, button.btn:focus, button.btn:active:focus {
+  background-color: rgb(100, 0, 150);
+  color: rgb(48, 0, 75);
+  border-color: rgb(192, 192, 192);
 }
 
-/* form e input */
-
+/* Form e input */
 form {
   width: 70%;
   margin: 20px;
   padding: 5%;
-  box-shadow: 10px 10px rgb(118, 93, 61);
-  
-  border: solid rgb(118, 93, 61) 2px;
+  box-shadow: 10px 10px rgb(48, 0, 75);
+  border: solid rgb(100, 0, 150) 2px;
 }
 
 form button {
@@ -103,9 +104,13 @@ form button {
 
 textarea {
   width: 100%;
+  background-color: rgb(20, 20, 20);
+  color: rgb(230, 230, 230);
+  border: 1px solid rgb(100, 0, 150);
 }
 
 .form-label {
   font-size: large;
   display: block;
+  color: rgb(192, 192, 192);
 }

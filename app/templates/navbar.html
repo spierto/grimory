@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='/styles/style.css') }}">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{url_for('home')}}"><img src="static\styles\moon-stars.svg" /></a>
@@ -29,10 +29,10 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Entries
+            Read
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{ url_for('read') }}">Entries</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('read') }}">All Pages</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li>

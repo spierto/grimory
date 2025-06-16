@@ -9,3 +9,4 @@ class NewPage(FlaskForm):
 class NewUser(FlaskForm):
   name = StringField('Name', validators=[DataRequired()])
   email = StringField('E-mail', validators=[DataRequired(), Email()])
+  password = StringField('Password', validators=[DataRequired()])

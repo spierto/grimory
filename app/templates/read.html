@@ -9,7 +9,7 @@
   <div class="card-body">
     <h5 class="card-title">{{ page.title }}</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary">{{ page.author }}</h6>
-    <p class="card-text">{{ page.text|truncate(100, True) }}</p>
+    <p class="card-text">{{ page.text|truncate(100, true) }}</p>
     <a href="{{ url_for('read_id', id=page.id) }}" class="card-link">Read More</a>
   </div>
 </div>

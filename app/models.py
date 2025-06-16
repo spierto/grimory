@@ -17,6 +17,7 @@ class User(db.Model):
   id = db.Column(db.Integer, primary_key = True)
   name = db.Column(db.String(100), nullable = False)
   email = db.Column(db.String(100), unique = True, nullable = False)
+  password = db.Column(db.String(16), nullable = False)
   pages = db.relationship('Page', backref = 'author', lazy = True)
 
 class Page(db.Model):

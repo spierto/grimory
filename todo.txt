@@ -3,12 +3,13 @@
   /to do
     - edit
     - delete
-    - read: card preview
+    - read: id
 
   /done
     - repeatable navbar
     - hover navbar
     - templates
+    - read: card preview
 
   /bug
     - 

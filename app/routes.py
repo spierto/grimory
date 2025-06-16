@@ -10,11 +10,6 @@ from .models import Page, User, db
 def home():
   return render_template('home.html', title='Grimory')
 
-# SUCCESS #
-@app.route('/success')
-def success():
-  return '<h1>Success</h1>'
-
 # NEW USER #
 @app.route('/new_user', methods=['GET', 'POST'])
 def new_user():
@@ -22,10 +17,11 @@ def new_user():
     if request.method == 'POST' and form.validate():
         name = form.name.data
         email = form.email.data
-        user = User(name=name, email=email)
+        password = form.password.data
+        user = User(name=name, email=email, password=password)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('success'))
+        return redirect(url_for('read'))
     return render_template('new_user.html', form=form, title='Create New User')
 
 # AUTHENTICATION #
@@ -52,26 +48,29 @@ def write():
     page = Page(author_id=author_id, title=title, text=text, date = datetime.now())
     db.session.add(page)
     db.session.commit()
-    return redirect ('/success')
+    return redirect(url_for('read'))
   return render_template('write.html', form=form, title='Write a new page')
 
 # EDIT A PAGE #
-@app.route('/write/<int:id>/edit', methods=['GET', 'POST'])
-def page_edit():
-  page = Page.query_or_404(id)
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+def page_edit(id):
+  page = Page.query.get_or_404(id)
   form = NewPage(obj=page)
   if request.method == 'POST' and form.validate():
-    title = form.title.data
-    text = form.text.data
-    page = NewPage(title=title, text=text)
+    page.title = form.title.data
+    page.text = form.text.data
+    db.session.add(page)
     db.session.commit()
-    return redirect ('/success')
-  return render_template('write.html', form=form, title='Edit this page')
+    return redirect(url_for('read_id', id=page.id))
+  return render_template('edit-page.html', form=form, title='Edit this page')
 
 # DELETE A PAGE #
-@app.route('/delete/<int:placeholder_id>')
-def delete(placeholder_id):
-  return f'<h1>Delete id: {placeholder_id}</h1>'
+@app.route('/delete/<int:id>', methods=['GET', 'POST'])
+def delete(id):
+  page = Page.query.get_or_404(id)
+  db.session.delete(page)
+  db.session.commit()
+  return redirect(url_for('read', id=page.id))
 
 # READ ARCHIVE OF PAGES #
 @app.route('/read')
@@ -82,7 +81,8 @@ def read():
 # READ ONE SPECIFIC PAGE #
 @app.route('/read/<int:id>')
 def read_id(id):
-  return f'<h1>Read id: {id}</h1>'
+  page = Page.query.get_or_404(id)
+  return render_template('read-id.html', page=page, title='Reading')
 
 # FILTER PAGES BASED ON DATE #
 @app.route('/read/<month>')
@@ -97,8 +97,7 @@ def testtemplate():
   return render_template('prova.html', title='Test title')
 # fine test
 
-# test: card read
-@app.route('/read-test')
-def readtest():
-  pages = Page.query.all()
-  return render_template('read-new.html', pages=pages, title='Test read')
+@app.route('/testuser')
+def testuser():
+  users = User.query.all()
+  return render_template('test-user.html', users=users, title='Test Users')

@@ -1,0 +1,21 @@
+{% extends('base.html') %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+  <main>
+    <h2>{{ page.title }}</h2>
+    <article>
+      <h3>{{ page.date }}</h3>
+      <p>
+        {{ page.text }}
+      </p>
+      <p>
+        Written by: {{ page.author }}
+      </p>
+    </article>
+  </main>
+  <a href="{{ url_for('page_edit', id=page.id) }}" class="btn btn-primary">Edit</a>
+  <a href="{{ url_for('delete', id=page.id) }}" class="btn btn-danger">Delete</a>
+
+{% endblock %}
