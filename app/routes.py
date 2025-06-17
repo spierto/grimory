@@ -1,7 +1,7 @@
 from datetime import datetime
-from .forms import NewPage, NewUser
+from .forms import Auth, NewPage, NewUser
 from . import app
-from flask import redirect, render_template, request, url_for
+from flask import abort, redirect, render_template, request, session, url_for
 from .models import Page, User, db
 
 # HOMEPAGE #
@@ -9,6 +9,27 @@ from .models import Page, User, db
 @app.route('/home')
 def home():
   return render_template('home.html', title='Grimory')
+
+# AUTHENTICATION #
+@app.route('/auth', methods=['GET', 'POST'])
+def auth():
+  form = Auth()
+  if request.method == 'POST':
+    user = User.query.filter_by(email=form.email.data).first()
+    if user and user.password == form.password.data:
+      session['username'] = user.name
+      #debug
+      print("Session saved:", session)
+      return redirect('/')
+    else:
+      abort(401)
+  return render_template('auth.html', form=form)
+
+# LOGOUT #
+@app.route('/logout')
+def logout():
+  session.pop('username', None)
+  return redirect('/')
 
 # NEW USER #
 @app.route('/new_user', methods=['GET', 'POST'])
@@ -21,16 +42,8 @@ def new_user():
         user = User(name=name, email=email, password=password)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('read'))
+        return redirect('/')
     return render_template('new_user.html', form=form, title='Create New User')
-
-# AUTHENTICATION #
-@app.route('/auth', methods=['GET', 'POST'])
-def auth():
-  if request.method == 'POST':
-    return '<h1>Autenticazione in corso...</h1>'
-  else:
-    return '<h1>Pagina di login</h1><p>...</p>'
 
 # USER PAGE #
 @app.route('/user')
@@ -101,3 +114,7 @@ def testtemplate():
 def testuser():
   users = User.query.all()
   return render_template('test-user.html', users=users, title='Test Users')
+
+@app.route('/debug_session')
+def debug_session():
+  return f'session: {str(session)}'

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField
+from wtforms import PasswordField, StringField, TextAreaField
 from wtforms.validators import DataRequired, Email
 
 class NewPage(FlaskForm):
@@ -9,4 +9,8 @@ class NewPage(FlaskForm):
 class NewUser(FlaskForm):
   name = StringField('Name', validators=[DataRequired()])
   email = StringField('E-mail', validators=[DataRequired(), Email()])
-  password = StringField('Password', validators=[DataRequired()])
+  password = PasswordField('Password', validators=[DataRequired()])
+
+class Auth(FlaskForm):
+  email = StringField('E-mail', validators=[DataRequired(), Email()])
+  password = PasswordField('Password', validators=[DataRequired()])
