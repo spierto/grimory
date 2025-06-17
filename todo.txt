@@ -1,15 +1,19 @@
 ----- Front End -----
 
   /to do
-    - edit
-    - delete
-    - read: id
+    - click author to see all their pages
+    - fix page date
+    - add "edited:" date
+    -
 
   /done
     - repeatable navbar
     - hover navbar
     - templates
     - read: card preview
+    - edit
+    - delete
+    - read: id
 
   /bug
     - 
@@ -27,9 +31,10 @@
 ----- Back End -----
 
   /to do
-    - crud entry
-    - users
+    -
     -
   
   /done
     - set up DB
+    - crud entry
+    - users
