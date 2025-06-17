@@ -1,0 +1,66 @@
+nav.navbar {
+    background: linear-gradient(90deg, #342c3d 80%, #2d1836 100%);
+    border-bottom: 3px double #4b254c;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.04em;
+}
+
+.navbar-brand img {
+    height: 2.2em;
+    filter: drop-shadow(0 0 6px #b48ead) brightness(1.2);
+    margin-right: 0.5em;
+}
+
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-toggle {
+    color: #e0d6f6 !important;
+    font-size: 1.1em;
+    text-shadow: 0 0 6px #4b254c, 0 0 2px #fff2;
+    transition: color 0.2s, text-shadow 0.2s;
+    position: relative;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .dropdown-toggle:hover,
+.navbar-nav .nav-link.active {
+    color: #d16ba5 !important;
+    text-shadow: 0 0 10px #d16ba5, 0 0 2px #fff;
+}
+
+.dropdown-menu {
+    background: #241836;
+    border: 2px double #4b254c;
+    box-shadow: 0 4px 16px #000b;
+}
+
+.dropdown-item {
+    color: #e0d6f6;
+    font-family: 'Cormorant Garamond', serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+.dropdown-item:hover {
+    background: #4b254c;
+    color: #fff;
+}
+
+.navbar-toggler {
+    border-color: #4b254c;
+    background: #241836;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23b48ead' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(212,107,165,0.7)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Decorative pseudo-element for nav links */
+.navbar-nav .nav-link::before {
+    content: "✦";
+    color: #d16ba5;
+    margin-right: 0.3em;
+    font-size: 1em;
+    opacity: 0.7;
+    transition: color 0.2s;
+}
+.navbar-nav .nav-link:hover::before {
+    color: #d16ba5;
+    opacity: 1;
+}

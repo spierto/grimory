@@ -23,7 +23,7 @@ def auth():
       return redirect('/')
     else:
       abort(401)
-  return render_template('auth.html', form=form)
+  return render_template('auth.html', form=form, title='Login')
 
 # LOGOUT #
 @app.route('/logout')
@@ -43,7 +43,7 @@ def new_user():
         db.session.add(user)
         db.session.commit()
         return redirect('/')
-    return render_template('new_user.html', form=form, title='Create New User')
+    return render_template('new_user.html', form=form, title='Register')
 
 # USER PAGE #
 @app.route('/user')
