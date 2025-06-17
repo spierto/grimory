@@ -3,19 +3,24 @@
 {% endblock %}
 
 {% block content %}
-  <main>
-    <h2>{{ page.title }}</h2>
+  <div class="grimoire-page-box">
+    <div class="grimoire-header">
+      <div>
+        <h2>{{ page.title }}</h2>
+        <h3>{{ page.date }}</h3>
+      </div>
+    </div>
     <article>
-      <h3>{{ page.date }}</h3>
       <p>
         {{ page.text }}
       </p>
-      <p>
+      <p class="grimoire-author">
         Written by: {{ page.author }}
       </p>
     </article>
-  </main>
-  <a href="{{ url_for('page_edit', id=page.id) }}" class="btn btn-primary">Edit</a>
-  <a href="{{ url_for('delete', id=page.id) }}" class="btn btn-danger">Delete</a>
-
+    <div class="grimoire-actions">
+      <a href="{{ url_for('page_edit', id=page.id) }}" class="btn btn-primary">Edit</a>
+      <a href="{{ url_for('delete', id=page.id) }}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
 {% endblock %}

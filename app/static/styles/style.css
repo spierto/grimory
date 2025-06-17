@@ -176,50 +176,69 @@ form {
 
 /* READ ONE PAGE */
 
-/* ...existing code... */
-
-/* Grimoire-inspired Single Page Read Styles */
-main {
+.grimoire-page-box {
     background: linear-gradient(135deg, #18141c 85%, #2d1836 100%);
-    border: 2px double #4b254c;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px #000b, 0 0 0 12px #24183633 inset;
+    border: 2.5px double #4b254c;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px #000b, 0 0 0 16px #24183633 inset;
     color: #e0d6f6;
     font-family: 'Cormorant Garamond', serif;
-    padding: 2.5em 2em 2em 2em;
-    margin: 2.5em auto 2em auto;
-    max-width: 700px;
+    padding: 2.5em 3em 2em 3em;
+    margin: 3em auto 2em auto;
+    max-width: 900px;
+    min-height: 450px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-main h2 {
+.grimoire-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5em;
+}
+
+.grimoire-header h2 {
     color: #b48ead;
     font-family: 'UnifrakturCook', 'Cinzel Decorative', serif;
-    font-size: 2em;
+    font-size: 2.1em;
     text-shadow: 0 0 10px #4b254c, 0 0 2px #fff2;
-    margin-bottom: 0.6em;
-    text-align: center;
+    margin-bottom: 0.2em;
+    margin-right: 0.5em;
+    text-align: left;
 }
 
-main h3 {
+.grimoire-header h3 {
     color: #d16ba5;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1em;
-    margin-bottom: 1.2em;
-    text-align: center;
+    margin-bottom: 0.2em;
+    text-align: left;
 }
 
-main article p {
+.grimoire-page-box article {
+    flex: 1 1 auto;
+}
+
+.grimoire-page-box article p {
     color: #e0d6f6;
-    font-size: 1.13em;
+    font-size: 1.15em;
     margin-bottom: 1.2em;
     line-height: 1.7;
 }
 
-main article p:last-child {
+.grimoire-author {
     color: #b48ead;
     font-style: italic;
     text-align: right;
     font-size: 1em;
+}
+
+.grimoire-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    margin-top: 2em;
 }
 
 .btn-primary, .btn-danger {
@@ -227,10 +246,9 @@ main article p:last-child {
     font-size: 1.08em;
     letter-spacing: 0.04em;
     border: 2px double #b48ead;
-    margin-right: 0.7em;
-    margin-top: 1.2em;
     box-shadow: 0 2px 10px #4b254c99;
     transition: background-color 0.2s, box-shadow 0.2s;
+    min-width: 90px;
 }
 
 .btn-primary {
@@ -253,5 +271,3 @@ main article p:last-child {
     color: #fff;
     box-shadow: 0 0 16px #a8324acc;
 }
-
-/* ...existing code... */
