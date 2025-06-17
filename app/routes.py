@@ -17,6 +17,7 @@ def auth():
   if request.method == 'POST':
     user = User.query.filter_by(email=form.email.data).first()
     if user and user.password == form.password.data:
+      session['user_id'] = user.id
       session['username'] = user.name
       #debug
       print("Session saved:", session)
@@ -55,7 +56,11 @@ def user():
 def write():
   form = NewPage()
   if request.method == 'POST' and form.validate():
-    author_id = 0
+    if 'user_id' in session:
+      author_id = session['user_id']
+    else:
+      return abort(401)
+    
     title = form.title.data
     text = form.text.data
     page = Page(author_id=author_id, title=title, text=text, date = datetime.now())
@@ -88,14 +93,15 @@ def delete(id):
 # READ ARCHIVE OF PAGES #
 @app.route('/read')
 def read():
-  pages = Page.query.all()
+  pages = pages = Page.query.order_by(Page.date.desc()).all()
   return render_template('read.html', pages=pages, title='Read')
 
 # READ ONE SPECIFIC PAGE #
 @app.route('/read/<int:id>')
 def read_id(id):
   page = Page.query.get_or_404(id)
-  return render_template('read-id.html', page=page, title='Reading')
+  author_name = page.author.name
+  return render_template('read-id.html', page=page, author_name = author_name, title='Reading')
 
 # FILTER PAGES BASED ON DATE #
 @app.route('/read/<month>')

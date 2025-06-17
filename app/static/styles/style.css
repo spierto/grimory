@@ -123,6 +123,20 @@ form {
 
 /* CARDS */
 
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+/* .card {
+    margin: 0;
+    /* width già impostata inline, puoi anche spostarla qui */
+    /* width: 18rem; */
+
+
 .card {
     background: linear-gradient(135deg, #18141c 85%, #2d1836 100%);
     border: 2px double #4b254c;
