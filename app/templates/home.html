@@ -2,5 +2,11 @@
 {% block header %}
 {% endblock %}
 {% block content %}
-<h1>Welcome</h1>
+<h1 style="text-align: center">Welcome,
+{% if 'username' in session %}
+{{ session['username'] }}
+{% else %}
+Guest
+{% endif %}
 {% endblock %}
+</h1>
